@@ -1,5 +1,15 @@
+
+<form name="busqueda" id="busqueda" action="/quizes">
+	<label for="search">Buscador de preguntas</label>
+	<input type="text" name="search" id="search" value="<%=query%>" placeholder="Teclee el texto a buscar" />
+	<input type="submit" value="Buscar" />
+	<%if(query) { %>
+		<a href="/quizes">Todas las preguntas</a>
+	<% }; %>
+</form>
+
 <table>
 <% var i; for (i=0; i < quizes.length; i++) { %>
-   <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
+   <tr><td align="left"><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
 <% } %>
 </table>
