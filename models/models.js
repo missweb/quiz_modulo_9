@@ -39,9 +39,7 @@ sequelize.sync().then(function() {
     if(count === 0) {   // la tabla se inicializa solo si está vacía
       Quiz.bulkCreate(
         [ {pregunta: 'Capital de Italia',   respuesta: 'Roma'},
-          {pregunta: 'Capital de Portugal', respuesta: 'Lisboa'},
           {pregunta: 'Capital de España',   respuesta: 'Madrid'},
-          {pregunta: '¿Quién descubrió América?', respuesta: 'Cristobal Colón'},
           {pregunta: '¿De qué color es el caballo blanco de Santiago?', respuesta: 'blanco'},
           {pregunta: '¿Quién es la Reina de España?', respuesta: 'Letizia'},
           {pregunta: 'Capital de Perú', respuesta: 'Lima'}
