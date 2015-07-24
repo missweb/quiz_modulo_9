@@ -40,7 +40,7 @@ sequelize.sync().then(function() {
       Quiz.bulkCreate(
         [ {pregunta: 'Capital de Italia',   respuesta: 'Roma'},
           {pregunta: 'Capital de España',   respuesta: 'Madrid'},
-          {pregunta: '¿De qué color es el caballo blanco de Santiago?', respuesta: 'blanco'},
+//        {pregunta: '¿De qué color es el caballo blanco de Santiago?', respuesta: 'blanco'},
           {pregunta: '¿Quién es la Reina de España?', respuesta: 'Letizia'},
           {pregunta: 'Capital de Perú', respuesta: 'Lima'}
         ]
