@@ -1,16 +1,20 @@
 
 <form name="busqueda" id="busqueda" action="/quizes">
-	<label for="search">Buscador de preguntas</label>
-	<input type="text" name="search" id="search" value="<%=query%>" placeholder="Teclee el texto a buscar" />
+	<label for="search"><strong>Buscador de preguntas</strong></label>
+	<input type="text" name="search" id="search" value="<%=query%>" placeholder="Teclee el texto a buscar" autocomplete="off" required/>
 	<input type="submit" value="Buscar" />
 	<%if(query) { %>
-		<a href="/quizes">Todas las preguntas</a>
+		<a href="/quizes">Volver a todas de preguntas</a>
 	<% }; %>
 </form>
 <p/>
 <table>
-<% var i; for (i=0; i < quizes.length; i++) { %>
+<% if (quizes.length == 0) { %>
+	<tr><td align="left">No hay preguntas con ese criterio de búsqueda</td></tr>
+<% } else {
+   var i; for (i=0; i < quizes.length; i++) { %>
    <tr>
+      <td align="left"><i><%= quizes[i].tema %></i></td>
       <td align="left"><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
       <td>             <a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></a></td>
       <td>
@@ -21,7 +25,7 @@
 	      </form>
       </td>
    </tr>
-<% } %>
+<% } } %>
 </table>
 <p/>
 <a href="/quizes/new"><button type="button">Crear pregunta</button></a>

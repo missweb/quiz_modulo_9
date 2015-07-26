@@ -38,11 +38,12 @@ sequelize.sync().then(function() {
   Quiz.count().then(function (count){
     if(count === 0) {   // la tabla se inicializa solo si está vacía
       Quiz.bulkCreate(
-        [ {pregunta: 'Capital de Italia',   respuesta: 'Roma'},
-          {pregunta: 'Capital de España',   respuesta: 'Madrid'},
-//        {pregunta: '¿De qué color es el caballo blanco de Santiago?', respuesta: 'blanco'},
-          {pregunta: '¿Quién es la Reina de España?', respuesta: 'Letizia'},
-          {pregunta: 'Capital de Perú', respuesta: 'Lima'}
+        [ {pregunta: 'Capital de Italia',             respuesta: 'Roma',         tema: 'Humanidades'},
+          {pregunta: 'Capital de España',             respuesta: 'Madrid',       tema: 'Humanidades'},
+          {pregunta: 'Quién es la Reina de España?', respuesta: 'Letizia',      tema: 'Otro'},
+          {pregunta: 'Quién inventó la radio?',      respuesta: 'Marconi',      tema: 'Ciencia'},
+          {pregunta: 'Cuantos Megas tiene un Giga?', respuesta: '1024',         tema: 'Tecnología'},
+          {pregunta: 'Capital de Perú',               respuesta: 'Lima',         tema: 'Humanidades'}
         ]
       ).then(function(){console.log('Base de datos inicializada')});
     };

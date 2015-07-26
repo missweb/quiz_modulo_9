@@ -1,5 +1,9 @@
 <form method="get" action="/quizes/<%= quiz.id %>/answer">
-  <%= quiz.pregunta %> <p>
-  <input type="text" name="respuesta" value="Respuesta"/>
-  <input type="submit" value="Enviar">
+	<p><strong>    Tema: </strong><%= quiz.tema %></p>
+	<p><strong>Pregunta: </strong><%= quiz.pregunta %></p>
+	<input type="text" name="respuesta" placeholder="Respuesta" autocomplete="off" required/>
+	<input type="submit" value="Enviar">
 </form>
+<p>
+	<a href="/quizes">Volver</a>
+</p>
