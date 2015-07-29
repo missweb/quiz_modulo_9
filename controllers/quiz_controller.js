@@ -129,7 +129,7 @@ exports.destroy = function(req, res) {
 exports.showtemas = function(req, res, next){
 	models.Quiz.findAll({
 			attributes:['tema'],
-			group: ['tema']
+			group: ['tema'], order: ['tema']     
 		}
 	).then(
 		function(quizes) {
