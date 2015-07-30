@@ -1,4 +1,11 @@
+<%if(!session.user){%>
+  <i> Su comentario quedará pendiente de que un usuario autorizado lo publique </i><p>
+<%} else {%>
+  <i> No olvides publicar tu comentario </i><p>
+<%}%>
+
 Añadir comentario: <p>
+
 
 <form method="post" action="/quizes/<%=quizid%>/comments/" >
   <input type="text" id="comment" name="comment[texto]" value="" autocomplete="off" required/> <p>
