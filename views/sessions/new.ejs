@@ -1,6 +1,6 @@
 <h2>Login</h2>
 
-<% if (session.borrada==true ) { %>
+<% if (session.borrada==true && session.ultacceso!="undefined" ) { %>
 <i>  Su sesión se ha desconectado automáticamente. </i><p>
 <% session.borrada = false %>
 <% } %>

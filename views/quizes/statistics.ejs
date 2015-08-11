@@ -1,0 +1,9 @@
+<h3>Estadísticas</h1><br/>
+<table border="8" style="margin:0 auto">
+  <tr> <th> <i>Información</i></th>                     <th> <i>Número</i></th></tr>
+  <tr> <td align="left">Preguntas                 </td> <td><%= statistics.numpreg %> </td> </tr>
+  <tr> <td align="left">Comentarios               </td> <td><%= statistics.numcome %> </td> </tr>
+  <tr> <td align="left">Comentarios por pregunta  </td> <td><%= statistics.comexpr.toFixed(0) %></td></tr>
+  <tr> <td align="left">Preguntas sin comentarios </td> <td><%= statistics.pregsco %> </td> </tr>
+  <tr> <td align="left">Preguntas con comentarios </td> <td><%= statistics.pregcco %> </td> </tr>
+</table>

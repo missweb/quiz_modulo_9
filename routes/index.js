@@ -43,4 +43,7 @@ router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionCon
 router.get('/temas',							         quizController.showtemas);
 router.get('/temas/:tema',			   		     quizController.showbytema);
 
+// Definición de rutas de /estadísticas
+router.get('/quizes/statistics',           quizController.statistics);
+
 module.exports = router;

@@ -129,14 +129,14 @@ exports.destroy = function(req, res) {
 exports.showtemas = function(req, res, next){
 	models.Quiz.findAll({
 			attributes:['tema'],
-			group: ['tema'], order: ['tema']     
+			group: ['tema'], order: ['tema']
 		}
 	).then(
 		function(quizes) {
 			res.render('temas/index', { quizes: quizes, errors: []});
 		}
 	).catch(function(error) { next(error)});
-}
+};
 
 exports.showbytema = function(req,res){
  	tema 			= req.params.tema
@@ -151,4 +151,28 @@ exports.showbytema = function(req,res){
 			res.render('temas/showbytema.ejs', { quizes: quizes, errors: []});
 		}
 	).catch(function(error) { next(error)});
-}
+};
+
+// GET /statistics
+exports.statistics = function(req, res, next) {
+  var statistics = {};
+  var errors = [];
+  models.Quiz.count().then(
+    function(count) {
+      statistics.numpreg = count;
+      models.Comment.count().then(
+        function(count) {
+          statistics.numcome = count;
+          statistics.comexpr = count/statistics.numpreg;
+          models.Comment.aggregate('QuizId', 'count', {'distinct': true }).then(
+            function(count) {
+              statistics.pregcco = count;
+              statistics.pregsco = statistics.numpreg-count;
+              res.render('quizes/statistics.ejs', { statistics: statistics, errors: errors });
+            }
+          ).catch (function(error) {next(error);})
+        }
+      ).catch (function(error) {next(error);})
+    }
+  ).catch (function(error) {next(error);})
+};
