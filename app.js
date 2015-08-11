@@ -38,6 +38,19 @@ app.use(function(req, res, next) {
 
   // Hacer visible req.session en las vistas
   res.locals.session = req.session;
+
+	// Desconexión de la sesión si está inactiva más de 2 minutos (2 * 60 * 1000)
+  if (req.session.ultacceso) {
+    if((new Date().getTime() - req.session.ultacceso) > 120000) {
+      delete req.session.ultacceso;
+      req.session.borrada = true ;
+      res.redirect("/logout");
+    }
+    else {
+      req.session.ultacceso = new Date().getTime();
+    }
+  };
+
   next();
 });
 

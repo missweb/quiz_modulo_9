@@ -1,5 +1,10 @@
 <h2>Login</h2>
 
+<% if (session.borrada==true ) { %>
+<i>  Su sesión se ha desconectado automáticamente. </i><p>
+<% session.borrada = false %>
+<% } %>
+
 <form method='POST' action='/login'>
 
   <div class="field">
